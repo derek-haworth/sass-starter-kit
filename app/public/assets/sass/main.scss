@@ -1,0 +1,75 @@
+/* This is a simple import file based on this repo 
+
+    Check below for a more advanced and modular example
+*/
+
+
+@import "variables";
+@import "normalize";
+@import "utilities";
+@import "base";
+@import "layout";
+@import "layout";
+@import "body"
+
+
+
+
+// Example Two with the respected folder and nesting structure - Production type
+
+
+@import "./vendor/_bootstrap"; //load first
+@import "./base/_variables";
+@import "./base/_typography";
+@import "./custom/_legacy"; // original ootb cc stylesheet - need to transfer everything to appropriate files and remove.
+@import "./layout/_bootstrap-overwrite";
+
+/* ----------------------------------------------------------------------
+   							Layout
+  ----------------------------------------------------------------------*/
+@import "./layout/_header";
+@import "./layout/_footer";
+@import "./layout/_bootstrap-v3.3.7";
+
+/* ----------------------------------------------------------------------
+  	 						Components
+   ----------------------------------------------------------------------*/
+@import "./components/_global";
+@import "./components/_btns";
+@import "./components/_icons";
+@import "./components/_utilities";
+
+/* ----------------------------------------------------------------------
+   							Pages
+  ----------------------------------------------------------------------*/
+//Home
+@import "./pages/home/_banner";
+@import "./pages/home/_browse-categories";
+@import "./pages/home/_custom-products";
+@import "./pages/home/_additionals";
+@import "./pages/home/_promos";
+@import "./pages/home/_category-tiles";
+//PLP
+@import "./pages/plp/_filters";
+@import "./pages/plp/_categories";
+@import "./pages/plp/_listview";
+@import "./pages/plp/_gridview";
+//PDP
+@import "./pages/pdp/_product-detail";
+// My Account
+@import "./pages/myaccount/_myaccount";
+// Cart/Checkout
+@import "./pages/checkout/_checkout";
+// Custom Subscriber Pages under Solutions Tab
+@import "./custom/_solutions-pages";
+
+/* ----------------------------------------------------------------------
+  			 Contact Us/ Quick Order/ Catalog/ Quote/ Forms 
+ ----------------------------------------------------------------------*/
+@import "./forms/_informational";
+
+/* ----------------------------------------------------------------------
+   						Vendor
+ ----------------------------------------------------------------------*/
+@import "./vendor/_js-image-slider";
+@import "./vendor/jquery-ui-theme/_jquery-ui-custom";

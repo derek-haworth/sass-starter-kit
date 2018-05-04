@@ -1,0 +1,118 @@
+// Example of how you might break up your fonts with mixins
+
+
+// Font Family Variables
+$avenirBlack: 'Avenir Black', arial, sans-serif;
+$avenirHeavy: 'Avenir Heavy', arial, sans-serif;
+$avenirMedium: 'Avenir Medium', arial, sans-serif;
+$avenirRoman: 'Avenir Roman', arial, sans-serif;
+
+@mixin font-face($font-family, $font-path, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font-family;
+      src: url('#{$font-path}.eot');
+      src: url('#{$font-path}.eot?#iefix') format('embedded-opentype'),
+           url('#{$font-path}.woff') format('woff'),
+           url('#{$font-path}.ttf') format('truetype'),
+           url('#{$font-path}.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+// If font path changes, modify variable here - path is relative to minified CSS
+$font-file-path: "../fonts";
+
+@include font-face("Avenir Heavy",'#{$font-file-path}/Avenir-Heavy', normal, normal);
+@include font-face("Avenir Black",'#{$font-file-path}/Avenir-Black', normal, normal);
+@include font-face("Avenir Medium",'#{$font-file-path}/Avenir-Medium', normal, normal);
+@include font-face("Avenir Roman",'#{$font-file-path}/Avenir-Roman', normal, normal);
+
+
+@mixin AvenirHeavy {
+  font-family: $avenirHeavy;
+  font-style: normal;
+}
+@mixin AvenirBlack {
+  font-family: $avenirBlack;
+  font-style: normal;
+}
+@mixin AvenirMedium {
+  font-family: $avenirMedium;
+  font-style: normal;
+}
+@mixin AvenirRoman {
+  font-family: $avenirRoman;
+  font-style: normal;
+}
+
+// TYPOGRAPHY
+
+// Headers
+h1, h2, h3, h4, h5, p{
+  color: $black;
+}
+
+h1,
+h2 {
+  @include AvenirBlack;
+}
+
+h3,
+h4,
+h5 {
+  @include AvenirHeavy
+}
+
+h1,
+.h1 {
+  font-size: 24px;
+  text-transform: uppercase;
+  @media (max-width: 767px) {
+    font-size: 21px;
+  }
+}
+
+h2, .h2{
+  font-size: 24px;
+}
+h2.title {
+  @include AvenirBlack;
+  font-size: 22px;
+  font-weight: normal;
+  color: $black;
+  display: block;
+  padding: 0;
+  margin: 0;
+  clear: both;
+  @media (max-width: 767px){
+    margin: 15px;
+    font-size: 18px;
+  }
+}
+h3, .h3 {
+  font-size: 22px;
+}
+
+h4, .h4 {
+  font-size: 17px;
+}
+
+h5, .h5{
+  font-size: 16px;
+}
+
+p.subhead {
+  font-size: 16px;
+  @include AvenirMedium;
+}
+
+p {
+  font-size: 14px;
+  @include AvenirRoman;
+}
+
+.font-normal {
+  @include AvenirRoman;
+}
+
